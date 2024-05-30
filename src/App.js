@@ -25,7 +25,7 @@ const App = () => {
     setMessages(newMessages);
 
     try {
-      const response = await axios.post('http://localhost:4040/send', { text: message });
+      const response = await axios.post('http://localhost:8001/predict', { text: message });
       const botMessage = response.data;
       console.log(botMessage);
       setMessages((prevMessages) => [...prevMessages, { sender: 'bot', text: botMessage }]);

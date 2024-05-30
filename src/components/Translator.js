@@ -11,7 +11,7 @@ const Translator = () => {
     setMessages(newMessages);
 
     try {
-      const response = await axios.post('http://localhost:8001/process', { text: message });
+      const response = await axios.post('http://localhost:8001/translate', { sentence: message });
       const botMessage = response.data;
       console.log(botMessage);
       setMessages((prevMessages) => [...prevMessages, { sender: 'bot', text: botMessage }]);
