@@ -88,5 +88,4 @@ const ImageClassifier = () => {
     </div>
   );
 };
-
 export default ImageClassifier;

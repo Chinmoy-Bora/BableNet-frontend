@@ -40,19 +40,24 @@
     border-radius: 5px;
   }
   
-  .login-container form button {
+ .button {
     padding: 10px 20px;
+    
     background-color: #5788bb;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 10%;
+    
   }
   
-  .login-container form button:hover {
+ .button:hover {
     background-color: #0056b3;
   }
+
+
+
+
   
   
   @media (max-width: 600px) {

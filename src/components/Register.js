@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import '../styling/LoginStyle.css';
+import '../styling/RegisterStyle.css';
 import { useAlert } from './AlertContext';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const { showAlert } = useAlert();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -17,10 +18,19 @@ const Register = () => {
     setPassword(event.target.value);
   };
 
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!username || !password) {
-      showAlert('Please provide both username and password.');
+    if (!username || !password || !confirmPassword) {
+      showAlert('Please provide username, password, and confirm password.');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      showAlert('Passwords do not match.');
       return;
     }
 
@@ -35,22 +45,19 @@ const Register = () => {
           password: password,
         }),
       });
-  
+
       if (response.ok) {
         showAlert('Registration successful');
-        navigate('/login')
+        navigate('/login');
       } else {
         const responseData = await response.json();
-        showAlert('Registration failed: ' + responseData.error || 'Unknown error');
-      
+        showAlert('Registration failed: ' + (responseData.error || 'Unknown error'));
       }
     } catch (error) {
-      
       console.error('Error registering user:', error.message);
-      showAlert('Error registering user:', + error.message);
+      showAlert('Error registering user: ' + error.message);
     }
   };
-  
 
   return (
     <div className="login-container">
@@ -74,7 +81,16 @@ const Register = () => {
             onChange={handlePasswordChange}
           />
         </div>
-        <button type="submit">Register</button>
+        <div className="form-group">
+          <label htmlFor="confirm-password">Confirm:</label>
+          <input
+            type="password"
+            id="confirm-password"
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+          />
+        </div>
+        <button className='button' type="submit">Register</button>
       </form>
     </div>
   );
