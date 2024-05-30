@@ -1,4 +1,4 @@
-// AlertContext.js
+
 import React, { createContext, useState, useContext } from 'react';
 
 const AlertContext = createContext();
@@ -12,7 +12,7 @@ export const AlertProvider = ({ children }) => {
     setAlertVisible(true);
     setTimeout(() => {
       setAlertVisible(false);
-    }, 3000); // Hide the alert after 3 seconds
+    }, 3000); 
   };
 
   return (

@@ -10,14 +10,14 @@ const ChatBox = ({ messages }) => {
 
   useEffect(() => {
     scrollToBottom();
-    setHasMessages(messages.length > 0); // Check if messages exist
+    setHasMessages(messages.length > 0); 
   }, [messages]);
 
   return (
     <div>
-      {!hasMessages && ( // Conditionally render the header based on the presence of messages
+      {!hasMessages && ( 
         <div className='Header'>
-        <h1>Anything On your Mind Today?<br/><span className="white-text">Let's Have A Look!</span></h1>
+        <h1>You received something unusual today?<br/><span className="white-text">Let's check spam or not... </span></h1>
          
           
         </div>

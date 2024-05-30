@@ -42,8 +42,7 @@ const Register = () => {
       } else {
         const responseData = await response.json();
         showAlert('Registration failed: ' + responseData.error || 'Unknown error');
-       // showAlert("Registration failed:"+ response.error);
-       // console.error('Registration failed:', response.statusText);
+      
       }
     } catch (error) {
       

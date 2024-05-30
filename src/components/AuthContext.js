@@ -6,7 +6,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Check if user is already logged in (e.g., check local storage)
+    
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
@@ -14,8 +14,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (userData) => {
-    // Perform login logic (e.g., call backend API)
-    // Upon successful login, update user state and store user info in local storage
+
     setUser(userData);
     localStorage.setItem('user', JSON.stringify(userData));
   };

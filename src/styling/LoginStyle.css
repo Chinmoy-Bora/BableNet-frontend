@@ -1,8 +1,8 @@
-/* Base styles */
+
 .login-container {
     width: 40%;
     height: 60%;
-    margin: 0 auto; /* Center the container horizontally */
+    margin: 0 auto; 
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -54,7 +54,7 @@
     background-color: #0056b3;
   }
   
-  /* Responsive styles */
+  
   @media (max-width: 600px) {
     .login-container {
       max-width: 100%;

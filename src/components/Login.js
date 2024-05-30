@@ -45,19 +45,18 @@ const Login = () => {
       });
   
       if (response.ok) {
-        // Login successful, handle success response
-        // Call the login function from AuthContext to update authentication state
-        login({ username }); // You can pass additional user data if needed
+       
+        login({ username }); 
         showAlert('Login successful');
         setUsername('');
         setPassword('');
         navigate('/');
         
       } else {
-        // Login failed, handle error response
+        
         const responseData = await response.json();
         showAlert('login failed: ' + responseData.error || 'Unknown error');
-        //showAlert('Login failed: ' + response.statusText);
+        
       }
     } catch (error) {
       console.error('Error logging in:', error.message);

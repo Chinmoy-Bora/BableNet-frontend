@@ -1,4 +1,4 @@
-// App.js
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -14,6 +14,8 @@ import { AlertProvider, useAlert } from './components/AlertContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import TextClassifier from './components/TextClassifier';
 import ImageClassifier from './components/ImageClassifier';
+import ImageCaptioning from './components/ImageCaptioning';
+import Translator from './components/Translator';
 
 const App = () => {
   const [messages, setMessages] = useState([]);
@@ -26,32 +28,34 @@ const App = () => {
       const response = await axios.post('http://localhost:8002/predict', { text: message });
       const botMessage = response.data;
       console.log(botMessage);
-      setMessages((prevMessages) => [...prevMessages, { sender: 'bot',text: botMessage }]);
+      setMessages((prevMessages) => [...prevMessages, { sender: 'bot', text: botMessage }]);
     } catch (error) {
       console.error('Error sending message:', error);
     }
-    
+
   };
 
   return (
     <div className="App">
       <AuthProvider>
-      <AlertProvider>
-        <Router>
-          
-          <Navbar />
-          <Alert />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route element={<ProtectedRoute/>}>
-              <Route path="/image-generation" element={<TextClassifier messages={messages} onSendMessage={handleSendMessage}/>}/>
-              <Route path="/image-classifier" element={<ImageClassifier/>}/>
-            </Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-          
-        </Router>
+        <AlertProvider>
+          <Router>
+
+            <Navbar />
+            <Alert />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route element={<ProtectedRoute />}>
+                <Route path="/image-generation" element={<TextClassifier messages={messages} onSendMessage={handleSendMessage} />} />
+                <Route path="/image-classifier" element={<ImageClassifier />} />
+                <Route path="/image-captioning" element={<ImageCaptioning />} />
+                <Route path="/translate" element={<Translator />} />
+              </Route>
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Routes>
+
+          </Router>
         </AlertProvider>
       </AuthProvider>
     </div>

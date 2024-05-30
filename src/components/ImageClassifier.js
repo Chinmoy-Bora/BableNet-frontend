@@ -16,8 +16,8 @@ const ImageClassifier = () => {
         document.querySelector('.image-upload-wrap').style.display = 'none'; 
         document.querySelector('.file-upload-image').setAttribute('src', e.target.result); 
         document.querySelector('.file-upload-content').style.display = 'block'; 
-        setFileName(input.files[0].name); // Set the file name
-        // Send the image data to the API endpoint using Axios
+        setFileName(input.files[0].name); 
+        
         const formData = new FormData();
         formData.append('file', input.files[0]);
 
@@ -27,7 +27,7 @@ const ImageClassifier = () => {
               'Content-Type': 'multipart/form-data',
             },
           });
-          setApiResponse(response.data.label); // Set the API response in state
+          setApiResponse(response.data.label);
         } catch (error) {
           console.error('Error sending image:', error);
         }
@@ -44,8 +44,8 @@ const ImageClassifier = () => {
     document.querySelector('.file-upload-input').value = ''; 
     document.querySelector('.file-upload-content').style.display = 'none'; 
     document.querySelector('.image-upload-wrap').style.display = 'block'; 
-    setApiResponse(''); // Reset API response when removing upload
-    setFileName(''); // Reset file name
+    setApiResponse(''); 
+    setFileName(''); 
   };
 
   const handleDragOver = () => {
@@ -64,7 +64,7 @@ const ImageClassifier = () => {
       <div className="image-upload-wrap" onDragOver={handleDragOver} onDragLeave={handleDragLeave}>
         <input className="file-upload-input" type='file' onChange={(e) => readURL(e.target)} accept="image/*" />
         <div className="drag-text">
-          <h3>Drag and drop a file or select add Image</h3>
+          <h3>Drag and drop a file or select add Image to classify it</h3>
         </div>
       </div>
       <div className="file-upload-content" style={{ display: imagePreview ? 'block' : 'none' }}>
@@ -75,7 +75,7 @@ const ImageClassifier = () => {
         </div>
       </div>
       
-      {/* Text box to display API response */}
+      
 
     </div>
 
