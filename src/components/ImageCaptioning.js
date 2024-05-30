@@ -27,7 +27,11 @@ const ImageCaptioning = () => {
               'Content-Type': 'multipart/form-data',
             },
           });
-          setApiResponse(response.data.caption);
+          const a=response.data.caption
+          const response2 = await axios.post('http://localhost:8001/process', { text: a });
+          const botMessage = response2.data;
+
+         setApiResponse(botMessage);
         } catch (error) {
           console.error('Error sending image:', error);
         }
