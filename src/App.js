@@ -28,7 +28,14 @@ const App = () => {
       const response = await axios.post('http://localhost:8001/predict', { text: message });
       const botMessage = response.data;
       console.log(botMessage);
-      setMessages((prevMessages) => [...prevMessages, { sender: 'bot', text: botMessage }]);
+      if(botMessage ==='ham')
+        {
+          const a ="Given messageg is genuine message";
+        }
+        else{
+          const a ="Given messageg is not genuine message";
+        }
+      setMessages((prevMessages) => [...prevMessages, { sender: 'bot', text: a }]);
     } catch (error) {
       console.error('Error sending message:', error);
     }

@@ -6,7 +6,7 @@ function Home() {
         <div className="Home">
             <div className="content">
                 <div className="Leftmost">
-                <h1>Convert your imagination<br/>into picture</h1>
+                <h1>TransNET.ai<br/>Let's eradicate language barriers</h1>
                 </div>
                 <div className="Rightmost">
                 <img src='/AI.png' alt='back img' className='centered-image' />
