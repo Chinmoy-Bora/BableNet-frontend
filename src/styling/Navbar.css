@@ -1,0 +1,89 @@
+/* Navbar styles for larger screens */
+.navbar {
+    background-color: transparent;
+    padding: 30px;
+    display: flex;
+    justify-content: flex-end; 
+    z-index: 1000;
+    top: 0;
+
+  }
+  
+  .navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 70px; 
+  
+  }
+  
+  .nav-item {
+    font-family: Michroma;
+    font-size: 20px;
+  }
+  
+  
+  /* .nav-item:first-child {
+    margin-left: 0; Remove margin for the first item
+  } */
+  
+  .nav-item a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  
+  .navbar-toggle {
+    display: none; 
+  }
+  
+  .navbar-nav-mobile {
+    display: none; 
+  }
+  
+  
+  .scrollable-list {
+    max-height: calc(100vh - 100px); 
+    overflow-y: auto; 
+  }
+  
+  .scrollable-list ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .scrollable-list li {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+  
+  .scrollable-list li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Media query for screens smaller than 768px */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      display: none; 
+    }
+    .navbar-toggle {
+      display: block; 
+      cursor: pointer;
+    }
+  
+    .navbar-nav-mobile {
+      display: flex; 
+      flex-direction: column; 
+      align-items: flex-start; 
+      padding-left: 10%; 
+    }
+  
+    .nav-item {
+      margin-right: 0;
+      font-size: 16px;
+    }
+  }
+  

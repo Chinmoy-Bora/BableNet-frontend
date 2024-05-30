@@ -1,0 +1,57 @@
+/* HomeStyle.css */
+
+/* Home styles */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.Home {
+    display: flex;
+    height: 100vh; /* Full height of the viewport */
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    height: 100%;
+}
+
+.Leftmost, .Rightmost {
+    flex: 1; /* Each takes up 50% of the width */
+}
+
+.Rightmost {
+
+background-color: #7F9AEB;
+
+}
+
+.centered-image {
+    padding-top: 15%;
+    padding-left: 25%;
+    width: 60%; 
+    height: auto; /* Maintain aspect ratio */
+}
+
+.navbar {
+    position: absolute;
+    width: 90%;
+    top: 0;
+    z-index: 1000;
+}
+
+.Leftmost{
+    color: #202330;
+    font-size: 50px;
+    text-align: left;
+    justify-content: center;
+    font-family: Archivo Black;
+
+}
+h1 {
+        text-align: center;
+        padding-top: 20%;
+}
